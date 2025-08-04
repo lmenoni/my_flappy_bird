@@ -1,9 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <cmath>
+#include "Player.hpp"
 
 #define W_HEIGHT 720
 #define W_WIDTH 900
@@ -16,11 +14,11 @@ class Game
 private:
 
     sf::RenderWindow    _window;
-    sf::CircleShape     _player;
+    Player              _player;
     bool                _running;
 
-    void    processEvents( sf::Vector2f& velocity );
-    void    render( const sf::Drawable **sprites, int nOfSprites );
+    void    processEvents( void );
+    void    render( void );
     void    handleKeyInput( void );
     void    colorChangeLogic( sf::Shape& player, sf::Clock& clock );
     
