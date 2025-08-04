@@ -1,0 +1,97 @@
+=====Struttura a Oggetti di Base=====
+1. Game
+    Contiene il loop principale, inizializza SDL e gestisce lo stato del gioco.
+
+2. Entity (classe base astratta)
+    Rappresenta qualsiasi oggetto di gioco (player, nemici, ostacoli).
+    Contiene coordinate, metodi update() e render().
+
+3. Player (deriva da Entity)
+
+4. Gestisce input e movimento.
+    (Opzionale più avanti: Obstacle, Enemy, GameManager per punteggio, ecc.)
+
+
+=====Scaletta Flappy Bird=====
+
+1. Setup del progetto
+Obiettivo: Creare un loop base funzionante.
+
+Passaggi:
+    Crea la finestra sf::RenderWindow (es. 800x600).
+    Imposta setFramerateLimit(60).
+
+Implementa il loop di gioco:
+    Gestione eventi (chiusura finestra, pressione tasto spazio).
+    Pulizia schermo → Disegno → window.display().
+
+Classe:
+    Game: gestisce finestra, stato del gioco e loop principale.
+
+-----------------------------------------------------------------------------------
+
+2. Struttura a oggetti
+Obiettivo: Separare logica e rendering.
+
+Classi principali:
+    Entity (astratta)
+        Campi: posizione x, y, dimensioni, velocità verticale.
+        Metodi virtuali: update(float dt), render(sf::RenderWindow&).
+        Metodo getBounds() per collisioni (ritorna sf::FloatRect).
+    Bird (deriva da Entity)
+        Campi: velocità verticale, gravità.
+        update(): applica gravità, muove l’uccellino.
+        jump(): imposta velocità verso l’alto quando premi spazio.
+        render(): disegna un rettangolo o sprite.
+    Pipe (deriva da Entity)
+        Due tubi (alto e basso) in una singola entità o due separate.
+        Si muovono a sinistra costantemente.
+        Quando escono dallo schermo → reset con nuova altezza.
+    PipeManager (opzionale)
+        Contiene un std::vector<Pipe> per generare e aggiornare i tubi.
+        Gestisce il riciclo dei tubi fuori dallo schermo.
+
+-----------------------------------------------------------------------------------
+
+3. Loop di gioco completo
+
+Eventi
+    sf::Event event; → chiusura finestra o spazio per salto.
+
+Update
+    Aggiorna Bird (gravità + salto).
+    Aggiorna PipeManager (sposta tubi, ricicla).
+    Controlla collisioni: bird.getBounds().intersects(pipe.getBounds()).
+
+Render
+    window.clear()
+    Disegna bird + tutti i pipe.
+    window.display()
+
+-----------------------------------------------------------------------------------
+
+4. Stati del gioco
+Per gestire avvio, partita e game over:
+    enum GameState { MENU, PLAYING, GAME_OVER };
+    Game mostra schermata diversa in base allo stato:
+        MENU → mostra “Press Space to Start”.
+        PLAYING → loop normale.
+        GAME_OVER → blocca Bird e mostra punteggio.
+
+-----------------------------------------------------------------------------------
+
+5. Aggiungere Punteggio
+Incrementa il punteggio quando il Bird supera un tubo.
+
+Usa sf::Font e sf::Text per visualizzare il punteggio.
+
+-----------------------------------------------------------------------------------
+
+6. Miglioramenti successivi
+Sprite invece di rettangoli (sf::Texture + sf::Sprite).
+
+Suoni (sf::SoundBuffer + sf::Sound) per salto e collisione.
+
+Animazioni per il Bird (2-3 frame alternati).
+
+Scrolling dello sfondo per un effetto più realistico.
