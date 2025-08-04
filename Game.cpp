@@ -8,6 +8,7 @@ void    Game::gameLoop( void ) {
         float   delta = dt.asSeconds();
         processEvents();
         _player.update(delta);
+        _obstacle.update(delta);
         render();
     }
     _window.close();
@@ -49,6 +50,7 @@ void    Game::handleKeyInput( void ) {
 void    Game::render( void ) {
     _window.clear();
     _window.draw(*(_player.getSprite()));
+    _window.draw(*(_obstacle.getSprite()));
     _window.display();
 }
 

@@ -2,9 +2,8 @@
 #define GAME_HPP
 
 #include "Player.hpp"
+#include "Obstacle.hpp"
 
-#define W_HEIGHT 720
-#define W_WIDTH 900
 #define MOVE_SPEED 5.f
 #define JUMP_FORCE -400.f
 #define GRAVITY 800.f
@@ -15,6 +14,7 @@ private:
 
     sf::RenderWindow    _window;
     Player              _player;
+    Obstacle            _obstacle;
     bool                _running;
 
     void    processEvents( void );

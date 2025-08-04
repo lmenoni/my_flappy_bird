@@ -5,8 +5,8 @@
 #include <iostream>
 #include <cmath>
 
-#define W_HEIGHT 720
-#define W_WIDTH 900
+#define W_HEIGHT 810
+#define W_WIDTH 1080
 #define MOVE_SPEED 5.f
 #define JUMP_FORCE -400.f
 #define GRAVITY 800.f

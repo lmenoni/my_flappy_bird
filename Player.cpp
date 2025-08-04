@@ -26,7 +26,7 @@ void    Player::move( const float x, const float y ) {
 Player::Player( void ) : Entity(), _sprite(50) {
     _sprite.setFillColor(sf::Color::Green);
     _sprite.setOrigin(_sprite.getRadius(), _sprite.getRadius());
-    _sprite.setPosition(W_WIDTH / 2.f, W_HEIGHT / 2.f);
+    _sprite.setPosition(W_WIDTH / 6.f, W_HEIGHT / 2.f);
 }
 
 Player::Player( const Player& other ) : Entity(), _sprite(other._sprite) {}
