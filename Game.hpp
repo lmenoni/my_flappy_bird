@@ -3,10 +3,8 @@
 
 #include "Player.hpp"
 #include "ObstaclePair.hpp"
-
-#define MOVE_SPEED 5.f
-#define JUMP_FORCE -400.f
-#define GRAVITY 800.f
+#include <cstdlib>
+#include <ctime>
 
 class Game
 {
@@ -14,17 +12,20 @@ private:
 
     sf::RenderWindow    _window;
     Player              _player;
-    ObstaclePair        _obstacle;
+    ObstaclePair        _obstacle[20];
     bool                _running;
 
     void    processEvents( void );
     void    render( void );
     void    handleKeyInput( void );
-    void    colorChangeLogic( sf::Shape& player, sf::Clock& clock );
+    void    gameLoop( void );
+    void    updateEntities( const float delta );
+    void    activateRandomObstacle( void );
+    int     getFirstInactive( void );
     
 public:
     
-    void    gameLoop( void );
+    bool    startGame( void );
     Game( void );
     ~Game( void );
 

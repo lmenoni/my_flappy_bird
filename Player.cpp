@@ -23,7 +23,7 @@ void    Player::move( const float x, const float y ) {
 
 // ORTHODOX
 
-Player::Player( void ) : Entity(), _sprite(50) {
+Player::Player( void ) : Entity(), _sprite(30) {
     _sprite.setFillColor(sf::Color::Green);
     _sprite.setOrigin(_sprite.getRadius(), _sprite.getRadius());
     _sprite.setPosition(W_WIDTH / 6.f, W_HEIGHT / 2.f);

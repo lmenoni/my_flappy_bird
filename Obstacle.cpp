@@ -28,7 +28,7 @@ sf::Vector2f    Obstacle::getSize( void ) {
 
 // ORTHODOX
 
-Obstacle::Obstacle( void ) : Entity(), _sprite(sf::Vector2f(100.f, 300.f)) {
+Obstacle::Obstacle( void ) : Entity(), _sprite(sf::Vector2f(80.f, 600.f)) {
     sf::Vector2f    size = _sprite.getSize();
     _sprite.setFillColor(sf::Color::Red);
     _sprite.setOrigin(size.x / 2.f, size.y / 2.f);

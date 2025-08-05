@@ -8,8 +8,10 @@
 #define W_HEIGHT 810
 #define W_WIDTH 1080
 #define MOVE_SPEED 5.f
-#define JUMP_FORCE -400.f
+#define JUMP_FORCE -350.f
 #define GRAVITY 800.f
+#define OBSTACLE_GAP 200.f
+#define OBSTACLE_SPEED 200.f
 
 class Entity
 {
