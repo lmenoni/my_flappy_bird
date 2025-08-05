@@ -11,7 +11,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system 
 
 # Sorgenti
-SRC = main.cpp Game.cpp Player.cpp Obstacle.cpp
+SRC = main.cpp Game.cpp Player.cpp Obstacle.cpp ObstaclePair.cpp
 
 # Regola di default
 all: $(NAME)

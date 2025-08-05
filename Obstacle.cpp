@@ -9,9 +9,26 @@ sf::Drawable* Obstacle::getSprite( void ) const {
     return ((sf::Drawable *)&_sprite);
 }
 
+ sf::Vector2f    Obstacle::getPosition( void ) const {
+    return (_sprite.getPosition());
+ }
+
+void    Obstacle::setPosition( float newX, float newY ) {
+    _sprite.setPosition(newX, newY);
+}
+
+void    Obstacle::setPosition( float newX ) {
+    sf::Vector2f    position = _sprite.getPosition();
+    _sprite.setPosition(newX, position.y);
+}
+
+sf::Vector2f    Obstacle::getSize( void ) {
+    return (_sprite.getSize());
+}
+
 // ORTHODOX
 
-Obstacle::Obstacle( void ) : Entity(), _sprite(sf::Vector2f(100.f, 200.f)) {
+Obstacle::Obstacle( void ) : Entity(), _sprite(sf::Vector2f(100.f, 300.f)) {
     sf::Vector2f    size = _sprite.getSize();
     _sprite.setFillColor(sf::Color::Red);
     _sprite.setOrigin(size.x / 2.f, size.y / 2.f);

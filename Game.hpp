@@ -2,7 +2,7 @@
 #define GAME_HPP
 
 #include "Player.hpp"
-#include "Obstacle.hpp"
+#include "ObstaclePair.hpp"
 
 #define MOVE_SPEED 5.f
 #define JUMP_FORCE -400.f
@@ -14,7 +14,7 @@ private:
 
     sf::RenderWindow    _window;
     Player              _player;
-    Obstacle            _obstacle;
+    ObstaclePair        _obstacle;
     bool                _running;
 
     void    processEvents( void );

@@ -50,14 +50,15 @@ void    Game::handleKeyInput( void ) {
 void    Game::render( void ) {
     _window.clear();
     _window.draw(*(_player.getSprite()));
-    _window.draw(*(_obstacle.getSprite()));
+    _window.draw(*(_obstacle.getTopSprite()));
+    _window.draw(*(_obstacle.getBotSprite()));
     _window.display();
 }
 
 // ORTHODOX
 
 Game::Game( void )
-    : _window(sf::VideoMode(W_WIDTH, W_HEIGHT), "Flappy God"), _player(), _running(true) {
+    : _window(sf::VideoMode(W_WIDTH, W_HEIGHT), "Flappy God"), _player(), _obstacle(), _running(true) {
     _window.setFramerateLimit(60);
 }
 

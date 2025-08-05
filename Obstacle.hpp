@@ -18,6 +18,10 @@ public:
 
     void    update( float delta );
     sf::Drawable* getSprite( void ) const;
+    sf::Vector2f    getPosition( void ) const;
+    void    setPosition( float newX, float newY );
+    void    setPosition( float newX );
+    sf::Vector2f    getSize( void );
 
 };
 
