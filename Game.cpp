@@ -1,6 +1,11 @@
 #include "Game.hpp"
 
 bool    Game::startGame( void ) {
+    sf::Texture player;
+    player.loadFromFile("paralleila.png");
+    // player.loadFromFile("blob.png");
+
+    _player.setTexture(player);
     float   margin = 50.f;
     int     idx = 0;
     float   patternY = W_HEIGHT - margin;
@@ -40,7 +45,7 @@ void    Game::gameLoop( void ) {
 void    Game::activateRandomObstacle( void ) {
     static ObstaclePair    *lastObstacle = NULL;
 
-    if (!lastObstacle || (W_WIDTH - lastObstacle->getX() > 0.f && W_WIDTH - lastObstacle->getX() >= W_WIDTH / 3)) {
+    if (!lastObstacle || (W_WIDTH - lastObstacle->getX() > 0.f && W_WIDTH - lastObstacle->getX() >= W_WIDTH / 2)) {
         int idx = rand() % 20;
         if (_obstacle[idx].isActive())
             idx = getFirstInactive();
